@@ -1,0 +1,1550 @@
+[
+    {
+        "id": "b362ebad.6aeea",
+        "type": "tab",
+        "label": "arecord with Matrix Voice",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "5ebc51e3.44925",
+        "type": "tab",
+        "label": "Simple Speech Dashboard",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "5781a723.05cf58",
+        "type": "tab",
+        "label": "Microphone",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "81d3569a.48c9e8",
+        "type": "tab",
+        "label": "Hey Watson",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "b91bb085.c3bf28",
+        "type": "tab",
+        "label": "Matrix Voice Hey Watson",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d9ac9e76.5dd8f8",
+        "type": "ui_group",
+        "z": "b362ebad.6aeea",
+        "name": "Speech Example",
+        "tab": "b2e69e0d.c7392",
+        "disp": true,
+        "width": "10",
+        "collapse": false
+    },
+    {
+        "id": "b2e69e0d.c7392",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Watson Speech Dashboard Example",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "c38bd1ea.0587e",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "22fb4b35.14daac",
+        "type": "inject",
+        "z": "b362ebad.6aeea",
+        "name": "Click here to Start Recording",
+        "topic": "",
+        "payload": "start",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "x": 180,
+        "y": 100,
+        "wires": [
+            [
+                "a936ab52.c82f38"
+            ]
+        ]
+    },
+    {
+        "id": "a7a299f5.a2bf68",
+        "type": "comment",
+        "z": "b362ebad.6aeea",
+        "name": "#2 Pass the .wav buffer to Watson Speech to Text",
+        "info": "Pass the .wav buffer to Watson Speech to Text",
+        "x": 490,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "8417f383.317158",
+        "type": "watson-speech-to-text",
+        "z": "b362ebad.6aeea",
+        "name": "",
+        "alternatives": "",
+        "speakerlabels": false,
+        "smartformatting": false,
+        "lang": "en-US",
+        "langhidden": "en-US",
+        "langcustom": "NoCustomisationSetting",
+        "langcustomhidden": "",
+        "band": "BroadbandModel",
+        "bandhidden": "BroadbandModel",
+        "password": "",
+        "payload-response": true,
+        "streaming-mode": false,
+        "default-endpoint": true,
+        "service-endpoint": "",
+        "x": 440,
+        "y": 360,
+        "wires": [
+            [
+                "2a01996c.38a6b6"
+            ]
+        ]
+    },
+    {
+        "id": "9afc9e0d.9d45d8",
+        "type": "comment",
+        "z": "b362ebad.6aeea",
+        "name": "#1 Record a message",
+        "info": "/usr/bin/arecord is available on \n   - Mac OSX\n   - Linux (ALSA)\n\nExperiment with SoX on Windows",
+        "x": 120,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "2a01996c.38a6b6",
+        "type": "debug",
+        "z": "b362ebad.6aeea",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 630,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "a936ab52.c82f38",
+        "type": "exec",
+        "z": "b362ebad.6aeea",
+        "command": "/usr/bin/arecord -d 5 --device=mic_channel0 -r 16000 -c 1  -f S16_LE /home/pi/test.wav",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 410,
+        "y": 220,
+        "wires": [
+            [
+                "63696ebb.e9b65"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "63696ebb.e9b65",
+        "type": "file in",
+        "z": "b362ebad.6aeea",
+        "name": "",
+        "filename": "/home/pi/test.wav",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "x": 230,
+        "y": 360,
+        "wires": [
+            [
+                "8417f383.317158"
+            ]
+        ]
+    },
+    {
+        "id": "d133ffa6.7c2a08",
+        "type": "comment",
+        "z": "5ebc51e3.44925",
+        "name": "#2 Pass the .wav buffer to Watson Speech to Text",
+        "info": "Pass the .wav buffer to Watson Speech to Text",
+        "x": 450,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "6bd3011d.ea1ce",
+        "type": "ui_button",
+        "z": "5ebc51e3.44925",
+        "name": "Start Recording",
+        "group": "d9ac9e76.5dd8f8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Start Recording",
+        "color": "black",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "start",
+        "payloadType": "str",
+        "topic": "",
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "8c975485.0a3"
+            ]
+        ]
+    },
+    {
+        "id": "f0d2d159.723628",
+        "type": "watson-speech-to-text",
+        "z": "5ebc51e3.44925",
+        "name": "",
+        "alternatives": "",
+        "speakerlabels": false,
+        "smartformatting": false,
+        "lang": "en-US",
+        "langhidden": "en-US",
+        "langcustom": "NoCustomisationSetting",
+        "langcustomhidden": "",
+        "band": "BroadbandModel",
+        "bandhidden": "BroadbandModel",
+        "password": "",
+        "payload-response": true,
+        "streaming-mode": false,
+        "default-endpoint": true,
+        "service-endpoint": "",
+        "x": 440,
+        "y": 360,
+        "wires": [
+            [
+                "41bc0135.ffa85",
+                "24c65e64.687e9a"
+            ]
+        ]
+    },
+    {
+        "id": "1652d675.7ef082",
+        "type": "comment",
+        "z": "5ebc51e3.44925",
+        "name": "#1 Record a message",
+        "info": "/usr/bin/arecord is available on \n   - Mac OSX\n   - Linux (ALSA)\n\nExperiment with SoX on Windows",
+        "x": 120,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "41bc0135.ffa85",
+        "type": "debug",
+        "z": "5ebc51e3.44925",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 630,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "8c975485.0a3",
+        "type": "exec",
+        "z": "5ebc51e3.44925",
+        "command": "/usr/bin/arecord -d 5 --device=mic_channel0 -r 16000 -c 1  -f S16_LE /home/pi/test.wav",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 410,
+        "y": 220,
+        "wires": [
+            [
+                "641a2e10.ae6de8"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "641a2e10.ae6de8",
+        "type": "file in",
+        "z": "5ebc51e3.44925",
+        "name": "",
+        "filename": "/home/pi/test.wav",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "x": 230,
+        "y": 360,
+        "wires": [
+            [
+                "f0d2d159.723628"
+            ]
+        ]
+    },
+    {
+        "id": "24c65e64.687e9a",
+        "type": "ui_text",
+        "z": "5ebc51e3.44925",
+        "group": "d9ac9e76.5dd8f8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Transcript",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 620,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "47abadde.a6a60c",
+        "type": "inject",
+        "z": "5781a723.05cf58",
+        "name": "Click here to Start Recording",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 160,
+        "y": 100,
+        "wires": [
+            [
+                "f1ef04e4.8090d"
+            ]
+        ]
+    },
+    {
+        "id": "1bb50c3d.21d97c",
+        "type": "inject",
+        "z": "5781a723.05cf58",
+        "name": "Click here to Stop Recording",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 160,
+        "y": 140,
+        "wires": [
+            [
+                "f1ef04e4.8090d"
+            ]
+        ]
+    },
+    {
+        "id": "daa86ca9.7a3b38",
+        "type": "comment",
+        "z": "5781a723.05cf58",
+        "name": "node-red-contrib-micropi dependency",
+        "info": "This flow requires the\n  node-red-contrib-micropi\nfor the Micro Pi node.\nYou can either \n  $ sudo npm -g install node-red-contrib-micropi\n  and restart the Node-RED service\nor install it from Node-RED Manage Palette.",
+        "x": 290,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "d5ad2005.a149a8",
+        "type": "microPi",
+        "z": "5781a723.05cf58",
+        "name": "microPi",
+        "filename": "/home/pi/audio/demo.wav",
+        "domain": "http://localhost:1880/getAudio",
+        "rate": "16000",
+        "bitwidth": "16",
+        "endian": "little",
+        "encoding": "signed-integer",
+        "channels": "1",
+        "silence": "10",
+        "debug": "true",
+        "mode": "",
+        "x": 640,
+        "y": 120,
+        "wires": [
+            [],
+            [
+                "8a6329a6.25372"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "2f79707f.d6f878",
+        "type": "comment",
+        "z": "5781a723.05cf58",
+        "name": "#2 Pass the .wav buffer to Watson Speech to Text",
+        "info": "Pass the .wav buffer to Watson Speech to Text",
+        "x": 550,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "55268039.559fd8",
+        "type": "watson-speech-to-text",
+        "z": "5781a723.05cf58",
+        "name": "",
+        "alternatives": "",
+        "speakerlabels": false,
+        "smartformatting": false,
+        "lang": "en-US",
+        "langhidden": "en-US",
+        "langcustom": "NoCustomisationSetting",
+        "langcustomhidden": "",
+        "band": "BroadbandModel",
+        "bandhidden": "BroadbandModel",
+        "password": "",
+        "payload-response": true,
+        "streaming-mode": false,
+        "default-endpoint": true,
+        "service-endpoint": "",
+        "x": 500,
+        "y": 320,
+        "wires": [
+            [
+                "33e1ce1a.ce327a"
+            ]
+        ]
+    },
+    {
+        "id": "33e1ce1a.ce327a",
+        "type": "debug",
+        "z": "5781a723.05cf58",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 690,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "8a6329a6.25372",
+        "type": "file in",
+        "z": "5781a723.05cf58",
+        "name": "",
+        "filename": "/home/pi/audio/demo.wav",
+        "format": "",
+        "chunk": false,
+        "sendError": true,
+        "x": 250,
+        "y": 320,
+        "wires": [
+            [
+                "55268039.559fd8"
+            ]
+        ]
+    },
+    {
+        "id": "f1ef04e4.8090d",
+        "type": "change",
+        "z": "5781a723.05cf58",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "options.device",
+                "pt": "msg",
+                "to": "mic_channel0",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 120,
+        "wires": [
+            [
+                "d5ad2005.a149a8"
+            ]
+        ]
+    },
+    {
+        "id": "4bcc3f21.f751",
+        "type": "inject",
+        "z": "81d3569a.48c9e8",
+        "name": "Click here to Start Recording",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 160,
+        "y": 100,
+        "wires": [
+            [
+                "6210b55c.843e34"
+            ]
+        ]
+    },
+    {
+        "id": "dd499212.6b27c",
+        "type": "inject",
+        "z": "81d3569a.48c9e8",
+        "name": "Click here to Stop Recording",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 160,
+        "y": 140,
+        "wires": [
+            [
+                "6210b55c.843e34"
+            ]
+        ]
+    },
+    {
+        "id": "2082c6a8.c17f12",
+        "type": "comment",
+        "z": "81d3569a.48c9e8",
+        "name": "node-red-contrib-micropi dependency",
+        "info": "This flow requires the\n  node-red-contrib-micropi\nfor the Micro Pi node.\nYou can either \n  $ sudo npm -g install node-red-contrib-micropi\n  and restart the Node-RED service\nor install it from Node-RED Manage Palette.",
+        "x": 290,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "3b25074b.528108",
+        "type": "microPi",
+        "z": "81d3569a.48c9e8",
+        "name": "microPi",
+        "filename": "/home/pi/audio/demo.wav",
+        "domain": "http://localhost:1880/getAudio",
+        "rate": "16000",
+        "bitwidth": "16",
+        "endian": "little",
+        "encoding": "signed-integer",
+        "channels": "1",
+        "silence": "10",
+        "debug": "false",
+        "mode": "",
+        "x": 620,
+        "y": 120,
+        "wires": [
+            [
+                "b28fd5dd.f113a"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "4f3b5666.910e7",
+        "type": "debug",
+        "z": "81d3569a.48c9e8",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 1050,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "b28fd5dd.f113a",
+        "type": "Snowboy",
+        "z": "81d3569a.48c9e8",
+        "name": "Hey Watson hotword detector",
+        "detectorFile": "/home/pi/snowboy/rpi-arm-raspbian-8.0-1.1.1/resources/common.res",
+        "models": [
+            {
+                "idxOutput": 0,
+                "nbOutputs": 1,
+                "hotwords": "",
+                "sensitivity": "",
+                "file": "/home/pi/snowboy/Hey Watson.pmdl"
+            }
+        ],
+        "multipleOutput": "false",
+        "debug": "true",
+        "x": 850,
+        "y": 120,
+        "wires": [
+            [
+                "4f3b5666.910e7"
+            ]
+        ]
+    },
+    {
+        "id": "6210b55c.843e34",
+        "type": "change",
+        "z": "81d3569a.48c9e8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "options.device",
+                "pt": "msg",
+                "to": "mic_channel0",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 120,
+        "wires": [
+            [
+                "3b25074b.528108"
+            ]
+        ]
+    },
+    {
+        "id": "13b54aad.e148ed",
+        "type": "comment",
+        "z": "5781a723.05cf58",
+        "name": "Hacked version of MicroPi - READ THIS",
+        "info": "MicroPi expects to record USB Audio via \n   arecord -D plughw:1,0\nMatrix Voice outputs audio on mic_channel0\n   arecord -D mic_channel0\n   \nAs root, edit\n  /usr/lib/node_modules/node-red-contrib-micropi/micropi/nodes/micropi/lib/mic.js\nchange\n        _device = options.device || 'plughw:1,0';\nto\n        _device = options.device || 'mic_channel0';\n",
+        "x": 670,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "cf14d705.d98b2",
+        "type": "comment",
+        "z": "81d3569a.48c9e8",
+        "name": "Hacked version of MicroPi - READ THIS",
+        "info": "MicroPi expects to record USB Audio via \n   arecord -D plughw:1,0\nMatrix Voice outputs audio on mic_channel0\n   arecord -D mic_channel0\n   \nAs root, edit\n  /usr/lib/node_modules/node-red-contrib-micropi/micropi/nodes/micropi/lib/mic.js\nchange\n        _device = options.device || 'plughw:1,0';\nto\n        _device = options.device || 'mic_channel0';\n",
+        "x": 630,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "d2c4caf0.971328",
+        "type": "watson-speech-to-text",
+        "z": "b91bb085.c3bf28",
+        "name": "",
+        "alternatives": "",
+        "speakerlabels": false,
+        "smartformatting": false,
+        "lang": "en-US",
+        "langhidden": "en-US",
+        "langcustom": "NoCustomisationSetting",
+        "langcustomhidden": "",
+        "band": "BroadbandModel",
+        "bandhidden": "BroadbandModel",
+        "password": "",
+        "payload-response": true,
+        "streaming-mode": false,
+        "default-endpoint": true,
+        "service-endpoint": "",
+        "x": 840,
+        "y": 280,
+        "wires": [
+            [
+                "e0acef2e.014348",
+                "937ca935.77df2"
+            ]
+        ]
+    },
+    {
+        "id": "e0acef2e.014348",
+        "type": "debug",
+        "z": "b91bb085.c3bf28",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "transcription",
+        "x": 1090,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "937ca935.77df2",
+        "type": "switch",
+        "z": "b91bb085.c3bf28",
+        "name": "Select Entities",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "bye",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "joke",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "weather",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 120,
+        "y": 620,
+        "wires": [
+            [
+                "e0592d63.da4da8"
+            ],
+            [
+                "e5da7cb0.480208"
+            ],
+            [
+                "ecdd0a41.ca9698"
+            ],
+            [
+                "9302da50.0c6c6"
+            ]
+        ]
+    },
+    {
+        "id": "bb682b4d.7d5cf8",
+        "type": "comment",
+        "z": "b91bb085.c3bf28",
+        "name": "Tell the Matrix Voice to tell a joke or ask for the Weather Report",
+        "info": "",
+        "x": 630,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "d7dd28db.680178",
+        "type": "comment",
+        "z": "b91bb085.c3bf28",
+        "name": "Paste API keys for Speech to Text",
+        "info": "1. Log into Bluemix\n2. Create an instance of the \nWatson Speech to Text service.\n3. Visit the Service Credentials tab\n4. Click on View Credentials\n5. Copy/Paste the password and username into\nthis Node-RED node.",
+        "x": 900,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "1da802b3.a76b4d",
+        "type": "comment",
+        "z": "b91bb085.c3bf28",
+        "name": "node-red-node-watson dependency",
+        "info": "This flow requires the\n  node-red-node-watson\nfor the following Watson nodes:\n  Speech to Text\n\nYou can either \n  $ sudo npm -g install node-red-node-watson\n  and restart the Node-RED service\nor install it from Node-RED Manage Palette.",
+        "x": 980,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "9302da50.0c6c6",
+        "type": "change",
+        "z": "b91bb085.c3bf28",
+        "name": "Huh? Continue listening",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0,0,0",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 720,
+        "wires": [
+            [
+                "32c6a7f4.f3c128"
+            ]
+        ]
+    },
+    {
+        "id": "5099f3dd.2cebec",
+        "type": "change",
+        "z": "b91bb085.c3bf28",
+        "name": "Forecast",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.forecast",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 640,
+        "wires": [
+            [
+                "2cde2988.9e41f6"
+            ]
+        ]
+    },
+    {
+        "id": "2cde2988.9e41f6",
+        "type": "watson-text-to-speech",
+        "z": "b91bb085.c3bf28",
+        "name": "",
+        "lang": "en-US",
+        "langhidden": "en-US",
+        "langcustom": "NoCustomisationSetting",
+        "langcustomhidden": "",
+        "voice": "en-US_MichaelVoice",
+        "voicehidden": "en-US_MichaelVoice",
+        "format": "audio/wav",
+        "password": "",
+        "payload-response": true,
+        "default-endpoint": true,
+        "service-endpoint": "",
+        "x": 740,
+        "y": 600,
+        "wires": [
+            [
+                "3afb802b.66754",
+                "beeeb4de.95af98"
+            ]
+        ]
+    },
+    {
+        "id": "ecdd0a41.ca9698",
+        "type": "wunderground",
+        "z": "b91bb085.c3bf28",
+        "name": "",
+        "lon": "",
+        "lat": "",
+        "city": "New York",
+        "country": "ny",
+        "x": 340,
+        "y": 640,
+        "wires": [
+            [
+                "5099f3dd.2cebec",
+                "855b1283.8d0588"
+            ]
+        ]
+    },
+    {
+        "id": "855b1283.8d0588",
+        "type": "debug",
+        "z": "b91bb085.c3bf28",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "payload.forecast",
+        "x": 620,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "7a35b108.5d658",
+        "type": "comment",
+        "z": "b91bb085.c3bf28",
+        "name": "Paste API keys for Text to Speech",
+        "info": "1. Log into Bluemix\n2. Create an instance of the \nWatson Text to Speech service.\n3. Visit the Service Credentials tab\n4. Click on View Credentials\n5. Copy/Paste the password and username into\nthis Node-RED node.",
+        "x": 660,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "b4a35369.a1bb1",
+        "type": "comment",
+        "z": "b91bb085.c3bf28",
+        "name": "node-red-node-watson dependency",
+        "info": "This flow requires the\n  node-red-node-watson@0.5.10 or higher\nfor the following Watson nodes:\n  Text to Speech\n  Speech to Text\n  Tone Analyzer\n  Visual Recognition\n\nYou can either \n  $ sudo npm -g install node-red-node-watson\n  and restart the Node-RED service\nor install it from Node-RED Manage Palette.",
+        "x": 600,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "be6604dd.b60d2",
+        "type": "comment",
+        "z": "b91bb085.c3bf28",
+        "name": "node-red-node-weather-underground dependency",
+        "info": "This flow requires\n  node-red-node-weather-underground\n\nYou can either \n  $ sudo npm -g install node-red-node-weather-underground\n  and restart the Node-RED service\nor install it from Node-RED Manage Palette.",
+        "x": 450,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "d252f097.ab147",
+        "type": "comment",
+        "z": "b91bb085.c3bf28",
+        "name": "WeatherUnderground API",
+        "info": "Visit \n   https://www.wunderground.com/weather/api/\nto get yourself a free developer API key.",
+        "x": 370,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "1617e270.86bd56",
+        "type": "comment",
+        "z": "b91bb085.c3bf28",
+        "name": "node-red-contrib-micropi dependency",
+        "info": "This flow requires the\n  node-red-contrib-micropi\nfor the Micro Pi node.\nYou can either \n  $ sudo npm -g install node-red-contrib-micropi\n  and restart the Node-RED service\nor install it from Node-RED Manage Palette.",
+        "x": 210,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "1d4b6c34.2eedb4",
+        "type": "inject",
+        "z": "b91bb085.c3bf28",
+        "name": "Click here to Start Recording",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "x": 180,
+        "y": 140,
+        "wires": [
+            [
+                "f8a43192.067dc"
+            ]
+        ]
+    },
+    {
+        "id": "fe054964.385838",
+        "type": "inject",
+        "z": "b91bb085.c3bf28",
+        "name": "Click here to Stop Recording",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 180,
+        "y": 180,
+        "wires": [
+            [
+                "f8a43192.067dc"
+            ]
+        ]
+    },
+    {
+        "id": "f8a43192.067dc",
+        "type": "microPi",
+        "z": "b91bb085.c3bf28",
+        "name": "microPi",
+        "filename": "/dev/null",
+        "domain": "http://localhost:1880/getAudio",
+        "rate": "16000",
+        "bitwidth": "16",
+        "endian": "little",
+        "encoding": "signed-integer",
+        "channels": "1",
+        "silence": "4",
+        "debug": "false",
+        "mode": "",
+        "x": 440,
+        "y": 180,
+        "wires": [
+            [
+                "cdee064.970b5f8"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ad901d60.e73018",
+        "type": "debug",
+        "z": "b91bb085.c3bf28",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 990,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "cdee064.970b5f8",
+        "type": "Snowboy",
+        "z": "b91bb085.c3bf28",
+        "name": "Hey Watson hotword detector",
+        "detectorFile": "/home/pi/snowboy/rpi-arm-raspbian-8.0-1.1.1/resources/common.res",
+        "models": [
+            {
+                "idxOutput": 0,
+                "nbOutputs": 1,
+                "hotwords": "",
+                "sensitivity": "",
+                "file": "/home/pi/snowboy/Hey Watson.pmdl"
+            }
+        ],
+        "multipleOutput": "false",
+        "debug": "true",
+        "x": 690,
+        "y": 160,
+        "wires": [
+            [
+                "ad901d60.e73018",
+                "2497149.f1c74ec",
+                "6b1ef022.fe2cc"
+            ]
+        ]
+    },
+    {
+        "id": "d09d9e8f.0495f8",
+        "type": "link out",
+        "z": "b91bb085.c3bf28",
+        "name": "",
+        "links": [
+            "39f38c46.954bd4"
+        ],
+        "x": 1195,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "32c6a7f4.f3c128",
+        "type": "change",
+        "z": "b91bb085.c3bf28",
+        "name": "Continue listening for Hey Watson",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 720,
+        "wires": [
+            [
+                "d09d9e8f.0495f8"
+            ]
+        ]
+    },
+    {
+        "id": "39f38c46.954bd4",
+        "type": "link in",
+        "z": "b91bb085.c3bf28",
+        "name": "",
+        "links": [
+            "d09d9e8f.0495f8"
+        ],
+        "x": 275,
+        "y": 220,
+        "wires": [
+            [
+                "f8a43192.067dc"
+            ]
+        ]
+    },
+    {
+        "id": "2497149.f1c74ec",
+        "type": "change",
+        "z": "b91bb085.c3bf28",
+        "name": "Turn off Hotword detection",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 80,
+        "wires": [
+            [
+                "f8a43192.067dc"
+            ]
+        ]
+    },
+    {
+        "id": "aaabb005.4f41f8",
+        "type": "delay",
+        "z": "b91bb085.c3bf28",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "4",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 360,
+        "y": 380,
+        "wires": [
+            [
+                "944f44ad.6880f"
+            ]
+        ]
+    },
+    {
+        "id": "944f44ad.6880f",
+        "type": "change",
+        "z": "b91bb085.c3bf28",
+        "name": "Stop Listening",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 380,
+        "wires": [
+            [
+                "e4c3ba1f.98e0f8"
+            ]
+        ]
+    },
+    {
+        "id": "e0592d63.da4da8",
+        "type": "change",
+        "z": "b91bb085.c3bf28",
+        "name": "Bye / Exit",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Thanks for Playing. Come Back tomorrow",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 520,
+        "wires": [
+            [
+                "73342bde.0e8bec"
+            ]
+        ]
+    },
+    {
+        "id": "73342bde.0e8bec",
+        "type": "watson-text-to-speech",
+        "z": "b91bb085.c3bf28",
+        "name": "",
+        "lang": "en-US",
+        "langhidden": "en-US",
+        "langcustom": "NoCustomisationSetting",
+        "langcustomhidden": "",
+        "voice": "en-US_MichaelVoice",
+        "voicehidden": "en-US_MichaelVoice",
+        "format": "audio/wav",
+        "password": "",
+        "payload-response": true,
+        "default-endpoint": true,
+        "service-endpoint": "",
+        "x": 740,
+        "y": 520,
+        "wires": [
+            [
+                "3afb802b.66754",
+                "eea75af6.1db0a"
+            ]
+        ]
+    },
+    {
+        "id": "6b1ef022.fe2cc",
+        "type": "exec",
+        "z": "b91bb085.c3bf28",
+        "command": "/usr/bin/aplay",
+        "addpay": false,
+        "append": " -D plughw:2,0 /home/pi/audio/howcanihelpyou.wav",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "How can I help You?",
+        "x": 180,
+        "y": 300,
+        "wires": [
+            [
+                "aaabb005.4f41f8",
+                "54632bc.22e7cd4"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "54632bc.22e7cd4",
+        "type": "change",
+        "z": "b91bb085.c3bf28",
+        "name": "Listen for 4 seconds",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 280,
+        "wires": [
+            [
+                "e4c3ba1f.98e0f8"
+            ]
+        ]
+    },
+    {
+        "id": "88703d38.03a398",
+        "type": "comment",
+        "z": "b91bb085.c3bf28",
+        "name": "What is the weather today?",
+        "info": "",
+        "x": 1100,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "df0600bc.96ad9",
+        "type": "comment",
+        "z": "b91bb085.c3bf28",
+        "name": "Bye ",
+        "info": "",
+        "x": 1030,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "e5da7cb0.480208",
+        "type": "change",
+        "z": "b91bb085.c3bf28",
+        "name": "Tell a joke",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Why did the robot go back to robot school? ,,,, Because his skills were getting a little rusty!",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 600,
+        "wires": [
+            [
+                "2cde2988.9e41f6"
+            ]
+        ]
+    },
+    {
+        "id": "64d2fd95.87795c",
+        "type": "comment",
+        "z": "b91bb085.c3bf28",
+        "name": "Can you tell a joke?",
+        "info": "",
+        "x": 1070,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "8dfbb182.2861f8",
+        "type": "inject",
+        "z": "b91bb085.c3bf28",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 123.125,
+        "y": 390,
+        "wires": [
+            [
+                "6b1ef022.fe2cc"
+            ]
+        ]
+    },
+    {
+        "id": "e4c3ba1f.98e0f8",
+        "type": "microPi",
+        "z": "b91bb085.c3bf28",
+        "name": "microPi",
+        "filename": "/home/pi/audio/demo.wav",
+        "domain": "http://localhost:1880/getAudio",
+        "rate": "16000",
+        "bitwidth": "16",
+        "endian": "little",
+        "encoding": "signed-integer",
+        "channels": "1",
+        "silence": "5",
+        "debug": "false",
+        "mode": "",
+        "x": 660,
+        "y": 280,
+        "wires": [
+            [],
+            [
+                "d2c4caf0.971328"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "e3bfad7c.1e3748",
+        "type": "exec",
+        "z": "b91bb085.c3bf28",
+        "command": "/usr/bin/aplay",
+        "addpay": false,
+        "append": "-D plughw:2,0 /home/pi/audio/answer.wav",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 1120,
+        "y": 600,
+        "wires": [
+            [
+                "32c6a7f4.f3c128"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "3afb802b.66754",
+        "type": "file",
+        "z": "b91bb085.c3bf28",
+        "name": "write answer.wav",
+        "filename": "/home/pi/audio/answer.wav",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 950,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "beeeb4de.95af98",
+        "type": "delay",
+        "z": "b91bb085.c3bf28",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 920,
+        "y": 600,
+        "wires": [
+            [
+                "e3bfad7c.1e3748"
+            ]
+        ]
+    },
+    {
+        "id": "eea75af6.1db0a",
+        "type": "delay",
+        "z": "b91bb085.c3bf28",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 920,
+        "y": 520,
+        "wires": [
+            [
+                "4118f0e7.ddfda8"
+            ]
+        ]
+    },
+    {
+        "id": "4118f0e7.ddfda8",
+        "type": "exec",
+        "z": "b91bb085.c3bf28",
+        "command": "/usr/bin/aplay",
+        "addpay": false,
+        "append": "-D plughw:2,0 /home/pi/audio/answer.wav",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 1120,
+        "y": 520,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7148b34a.3569cc",
+        "type": "comment",
+        "z": "b91bb085.c3bf28",
+        "name": "Hacked version of MicroPi - READ THIS",
+        "info": "MicroPi expects to record USB Audio via \n   arecord -D plughw:1,0\nMatrix Voice outputs audio on mic_channel0\n   arecord -D mic_channel0\n   \nAs root, edit\n  /usr/lib/node_modules/node-red-contrib-micropi/micropi/nodes/micropi/lib/mic.js\nchange\n        _device = options.device || 'plughw:1,0';\nto\n        _device = options.device || 'mic_channel0';\n",
+        "x": 350,
+        "y": 100,
+        "wires": []
+    }
+]
