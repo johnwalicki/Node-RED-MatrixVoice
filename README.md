@@ -1,4 +1,4 @@
-# MAtrix Voice, Node-RED and Watson Cognitive APIs
+# Matrix Voice, Node-RED and Watson Cognitive APIs
 
 ## Introduction
 This repository contains examples of how I set up my Matrix Voice to record
@@ -8,12 +8,12 @@ which demonstrate the evolution of my experiments.
 Before you can use these examples, upgrade [Node-RED](http://nodered.org) on
 your Raspberry Pi. Older versions of Node.js and Node-RED are pre-installed
 on the default Raspbian image.  I started with [Raspbian Stretch](https://www.raspberrypi.org/downloads/raspbian/),
-applied distro updates, then installed [Matrix Core](https://matrix-io.github.io/matrix-documentation/matrix-core/getting-started/installation/) only. I also used npm to install node-red-dashboard, node-red-contrib-microPi, node-red-contrib-snowboy, node-red-noe-weather-underground and node-red-node-watson
+applied distro updates, then installed [Matrix Core](https://matrix-io.github.io/matrix-documentation/matrix-core/getting-started/installation/) only. I also used npm to install node-red-dashboard, node-red-contrib-microPi, node-red-contrib-snowboy, node-red-node-weather-underground and node-red-node-watson
 
 I started at the command line and made certain that I could record audio.
 > /usr/bin/arecord -d 5 --device=mic_channel0 -r 16000 -c 1  -f S16_LE /home/pi/test.wav
 
-The Node-RED flows and screenshots include:
+Node-RED flows and screenshots included in this repository:
 * **arecord with Matrix Voice** - Simple flow which records a .wav file via the Matrix Voice 8 MEMs microphones and sends it to Watson Speech to Text for transcription.
 * **arecord with Matrix Voice controlled by a Node-RED Dashboard** - Same flow but controlled by a Node-RED dashboard.
 * **MicroPi with Watson Speech to Text** - Replace the arecord exec node with a hacked MicroPi node.
@@ -37,7 +37,7 @@ As a first step, copy the code from GitHub to your Clipboard and import it into 
 
 Get the Code - [Node-RED Matrix Voice flows](flows/MatrixNodeREDSnowboy.json)
 
-## Screenshots
+## Matrix Voice Node-RED Screenshots
 **arecord with Matrix Voice** - Simple flow which records a .wav file via the Matrix Voice 8 MEMs microphones and sends it to Watson Speech to Text for transcription.
 ![arecord with Matrix Voice](screenshots/NodeRED-arecord-STT-flow.png?raw=true)
 
@@ -53,3 +53,21 @@ Get the Code - [Node-RED Matrix Voice flows](flows/MatrixNodeREDSnowboy.json)
 
 **Full example of Matrix Voice with a wake word and Watson Cognitive API to implement a ChatBot**
 ![Watson Chatbot with Matrix Voice](screenshots/NodeRED-micropi-HeyWatson-STT-flow.png?raw=true)
+
+# Hacking node-red-contrib-microPi
+The node-red-contrib-micropi node expects to record USB Audio via
+> arecord -D plughw:1,0
+
+Matrix Voice outputs audio on mic_channel0.
+You can test with
+> $ /usr/bin/arecord -d 5 --device=mic_channel0 -r 16000 -c 1  -f S16_LE /home/pi/test.wav
+
+I had installed node-red-contrib-micropi into /usr/lib/node_modules, so as root, edit
+/usr/lib/node_modules/node-red-contrib-micropi/micropi/nodes/micropi/lib/mic.js
+and change
+>   _device = options.device || 'plughw:1,0';
+
+into
+> _device = options.device || 'mic_channel0';
+
+I'll propose a formal patch to node-red-contrib-microPi
