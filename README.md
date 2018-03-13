@@ -27,15 +27,15 @@ Since configuring Node-RED nodes and wiring them together requires many steps to
 
 * When instructed, open the **Get the Code** github URL, mark or Ctrl-A to select all of the text, and copy the text for the flow to your Clipboard.
 * Click on the Node-RED Menu **(6)**, then Import **(7)**, then Clipboard **(8)**.
-![Node-RED import screenshot](../IoT-AssetTracking-Perishable-Network-Blockchain/tree/master/Node-RED/screenshots/IBMCloud-NodeRED-import.png)
+![Node-RED import screenshot](../IoT-AssetTracking-Perishable-Network-Blockchain/Node-RED/screenshots/IBMCloud-NodeRED-import.png)
 * Paste the text of the flow into the **Import nodes** dialog and press the red **Import** button.
-![Node-RED import from clipboard screenshot](../IoT-AssetTracking-Perishable-Network-Blockchain/tree/master/Node-RED/screenshots/IBMCloud-NodeRED-pastefromclipboard.png)
+![Node-RED import from clipboard screenshot](../IoT-AssetTracking-Perishable-Network-Blockchain/Node-RED/screenshots/IBMCloud-NodeRED-pastefromclipboard.png)
 * The new flow will be imported into **new tabs** in the Node-RED Editor.
 
 ## Get the flow
 As a first step, copy the code from GitHub to your Clipboard and import it into your Node-RED editor.
 
-Get the Code [Node-RED Matrix Voice flows](flows/MatrixNodeREDSnowboy.json)
+Get the Code - [Node-RED Matrix Voice flows](flows/MatrixNodeREDSnowboy.json)
 
 ## Screenshots
 **arecord with Matrix Voice** - Simple flow which records a .wav file via the Matrix Voice 8 MEMs microphones and sends it to Watson Speech to Text for transcription.
